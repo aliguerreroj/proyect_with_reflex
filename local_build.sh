@@ -1,4 +1,4 @@
-source .venv/scripts/activate
+cd .venv/scripts/activate
 pip install --upgrade pip
 pip install -r requirements.txt
 rm -rf public
