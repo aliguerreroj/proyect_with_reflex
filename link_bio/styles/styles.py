@@ -2,9 +2,11 @@ from enum import Enum
 import reflex as rx
 from .colors import Color,TextColor
 from .fonts import Font,FontWeight
+
 # Constants
 MAX_WIDTH= "600px"
-
+FADEIN_ANIMATION = "animate__animated animate__fadeIn"
+BOUNCEIN_ANIMATION = "animate__animated animate__bounceIn"
 
 
 # sizes
@@ -24,6 +26,7 @@ STYLESHEETS = [
     "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css",
     "/css/styles.css"
 ]
+css_file = "/css/styles.css"
 
 BASE_STYLE={
     "font_family": Font.DEFAULT.value,

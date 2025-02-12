@@ -6,11 +6,14 @@ from link_bio.styles.styles import *
 import link_bio.constanst as const
 from link_bio.pages.index import index
 from link_bio.pages.courses import courses
+from link_bio.api.api import repo,live
+import link_bio.styles.styles as styles
 # class State(rx.state):
 #     pass
 
 
 app = rx.App(
+    stylesheets=styles.STYLESHEETS,
     style=BASE_STYLE
 )
 # app.add_page(index,title="practicando reflex with AliDev",description="hola, mi nombre es Ali Guerrero. soy ingeniero de software",image="logo.jpg")
@@ -32,3 +35,7 @@ app = rx.App(
 #         ),
 #     ],
 # )
+
+app.api.add_api_route("/repo", repo)
+app.api.add_api_route("/live/{user}", live)
+

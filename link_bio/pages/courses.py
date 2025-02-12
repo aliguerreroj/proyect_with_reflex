@@ -6,6 +6,7 @@ from link_bio.views.sponsors import sponsor
 from link_bio.components.footer import footer
 from link_bio.styles.styles import *
 from link_bio.routes import Route
+from link_bio.state.PageState import PageState
 import link_bio.constanst as const
 import link_bio.utils as utils
 
@@ -16,26 +17,34 @@ import link_bio.utils as utils
         route=Route.COURSES.value, 
         image="python_highlighted.png",
         title=utils.index_title,
-        description=utils.index_description)
+        description=utils.index_description,
+        meta=utils.courses_meta,
+        on_load=PageState.check_live
+        )
 def courses()->rx.Component:
     return rx.box(
         utils.lang(),
         rx.hstack(
-        navbar(),
+            navbar(),
 
-        ),
+            ),
         rx.center(
         rx.vstack(
         
-        header(details=False),
-        courses_links(),
-        # align="center",
-        sponsor(),
-        max_with=MAX_WIDTH,
-        width="100%",
-        align="center",
-        margin_y=Size.BIG.value,
-        padding=Size.BIG.value
+            header(
+                details=False,
+                # live_status=PageState.live_status,
+                # live=PageState.is_live,
+                # PageState.live_status
+                ),
+            courses_links(),
+            # align="center",
+            sponsor(),
+            max_with=MAX_WIDTH,
+            width="100%",
+            align="center",
+            margin_y=Size.BIG.value,
+            padding=Size.BIG.value
 
         )),
         
